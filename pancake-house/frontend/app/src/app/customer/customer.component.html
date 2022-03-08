@@ -1,0 +1,47 @@
+<h2>Dobrodosli kupce, {{user.ime}} {{user.prezime}}</h2>
+<hr>
+<h4>Izaberi glavni proizvod</h4>
+<table>
+    <tr>
+        <td>
+            <select name="choosenMainProduct" [(ngModel)]="choosenMainProduct">
+                <option *ngFor="let mp of mainProducts">{{mp.naziv}}</option>
+            </select>
+        </td>
+        <td>
+            <button (click)='chooseAdditionals()'> Izaberi dodatke i potvrdi narudzbinu</button>
+        </td>
+    </tr>
+</table>
+
+<hr>
+<div *ngIf='token'>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Datum</th>
+            <th>Status</th>
+        </tr>
+        <tr *ngFor='let o of orders'>
+            <td>
+                <span *ngIf='o.status == "Prihvaceno"' class="acceptedClass">{{o.idN}}</span>
+                <span *ngIf='o.status == "Odbijeno"' class="refusedClass">{{o.idN}}</span>
+                <span *ngIf='o.status == "Neobradjeno"'>{{o.idN}}</span>
+            </td>
+            <td>
+                <span *ngIf='o.status == "Prihvaceno"' class="acceptedClass">{{o.datum}}</span>
+                <span *ngIf='o.status == "Odbijeno"' class="refusedClass">{{o.datum}}</span>
+                <span *ngIf='o.status == "Neobradjeno"'>{{o.datum}}</span>
+            </td>
+            <td>
+                <span *ngIf='o.status == "Prihvaceno"' class="acceptedClass">{{o.status}}</span>
+                <span *ngIf='o.status == "Odbijeno"' class="refusedClass">{{o.status}}</span>
+                <span *ngIf='o.status == "Neobradjeno"'>{{o.status}}</span>
+
+            </td>
+
+        </tr>
+    </table>
+</div>
+<hr>
+<button (click)="logOut()">Odjavi se</button>

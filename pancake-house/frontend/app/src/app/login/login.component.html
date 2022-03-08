@@ -1,0 +1,30 @@
+<h3>Dobrodosli</h3>
+
+<form>
+    <table>
+        <tr>
+            <td>Korisnicko ime:</td>
+            <td><input type="text" name="username" [(ngModel)]="username"></td>
+        </tr>
+        <tr>
+            <td>Lozinka:</td>
+            <td><input type="password" name="password" [(ngModel)]="password"></td>
+        </tr>
+        <tr>
+            <td>Tip:</td>
+            <td>
+                <select name="type" [(ngModel)]="type">
+                    <option value="radnik">Radnik</option>
+                    <option value="kupac">Kupac</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='2'>
+                <button (click)='signIn()'>Uloguj se</button>
+            </td>
+        </tr>
+
+    </table>
+    <div *ngIf='errorMessage' class='errorClass'>{{errorMessage}}</div>
+</form>

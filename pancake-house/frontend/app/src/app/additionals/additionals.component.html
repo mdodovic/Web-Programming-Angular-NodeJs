@@ -1,0 +1,19 @@
+<h4>Nastavljamo sa kupovinom</h4>
+Izabrali ste <b>{{mainProductName}}</b>, sa kojim dodacima cete:
+
+<table>
+    <tr>
+        <td>
+            <select name="choosenAdditionals" [(ngModel)]="choosenAdditionals" multiple>
+                <option *ngFor="let mp of additionals" [ngValue]="mp.naziv">{{mp.naziv}}</option>
+            </select>
+        </td>
+        <td>
+            <button (click)='finishOrder()'>Naruci</button>
+        </td>
+    </tr>
+</table>
+
+<div *ngIf='errorMessage' class='errorClass'>
+    {{errorMessage}}
+</div>

@@ -1,0 +1,37 @@
+<h3>Dobrodosao admine, {{user.ime}} {{user.prezime}}</h3>
+<hr>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Porucilac</th>
+        <th colspan="2">Sardzaj</th>
+        <th>Datum</th>
+
+    </tr>
+    <tr *ngFor='let o of orders'>
+        <td>{{o.idN}}</td>
+        <td>{{o.ime}} {{o.prezime}}</td>
+        <td>{{o.proizvod}}</td>
+        <td>
+            <ul>
+                <li *ngFor='let a of o.dodaci'>
+                    {{a.naziv}}
+                </li>
+            </ul>
+        </td>
+        <td>{{o.datum}}</td>
+        <td>
+            <div *ngIf='o.status == "Neobradjeno"'>
+                {{o.status}}
+                <button (click)="acceptOrder(o.idN)">Prihvati</button>
+                <button (click)="refuseOrder(o.idN)">Odbaci</button>
+            </div>
+            <div *ngIf='o.status != "Neobradjeno"'>
+                {{o.status}}
+            </div>
+        </td>
+
+
+    </tr>
+</table>
+<button (click)="logOut()">Odjavi se</button>
