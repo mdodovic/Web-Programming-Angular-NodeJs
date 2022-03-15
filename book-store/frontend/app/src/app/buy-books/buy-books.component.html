@@ -1,0 +1,15 @@
+<h5>Kupovanje</h5>
+{{book.idK }} <br>
+{{book.naslov }} <br>
+{{book.slika }} <br>
+{{book.autor }} <br>
+{{book.brStr }} <br>
+{{book.godina }} <br>
+{{book.naStanju}} <br>
+
+<form>
+    Kolicina: <input type="number" name="amount" [(ngModel)]="amount">
+    <button (click)="buy()">Kupi</button>
+</form>
+
+<div *ngIf="errorMessage" class="errorClass">{{errorMessage}}</div>

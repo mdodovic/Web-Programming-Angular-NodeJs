@@ -1,0 +1,22 @@
+<h3>Dobrodosao radnice, {{user.ime}} {{user.prezime}}</h3>
+<hr>
+<form>
+    <table>
+        <tr>
+            <th>kupac</th>
+            <th>knjiga</th>
+            <th>kolicina</th>
+        </tr>
+        <tr *ngFor='let o of orders'>
+            <td> {{o.ime_kupca}}</td>
+            <td> {{o.ime_knjige}}</td>
+            <td> {{o.kolicina}}</td>
+            <td>{{o.status}}</td>
+            <td>
+                <div *ngIf='o.status != "Prihvaceno"'>
+                    <button (click)="confirm(o.idN)">Potvrdi</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>

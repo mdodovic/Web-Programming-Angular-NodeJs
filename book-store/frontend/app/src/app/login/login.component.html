@@ -1,0 +1,50 @@
+<h3>Dobrodosli</h3>
+
+<h4>Pretraga knjiga:</h4>
+<div *ngIf="!user">
+    <a routerLink='singUp'>Uloguj se</a>
+</div>
+<div *ngIf="user">
+    <a routerLink="" (click)="singOut()">Odjavi se</a>
+</div>
+<hr>
+<h4>Pretraga knjiga:</h4>
+<form>
+    <table>
+        <tr>
+            <td>Naslov: </td>
+            <td><input type="text" name="titleSearch" [(ngModel)]="titleSearch"></td>
+        </tr>
+        <tr>
+            <td>Autor: </td>
+            <td><input type="text" name="authorSearch" [(ngModel)]="authorSearch"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button (click)="find()">Filtriraj knjige</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button (click)="sort()">Sortiraj</button></td>
+        </tr>
+
+    </table>
+</form>
+<hr>
+<table>
+    <tr>
+        <th> Slika </th>
+        <th> Naslov </th>
+        <th> Autor </th>
+        <th> Broj strana </th>
+        <th> Godina izdanja </th>
+    </tr>
+    <tr *ngFor=' let b of books'>
+        <td><img src="/assets/{{b.slika}}" width="100px" height="150"></td>
+        <td>{{b.naslov}}</td>
+        <td>{{b.autor}}</td>
+        <td>{{b.brStr}}</td>
+        <td>{{b.godina}}</td>
+        <td><button (click)="buyBook(b)">Kupi</button></td>
+
+    </tr>
+</table>
+<div *ngIf="errorMessage" class="errorClass">{{errorMessage}}</div>

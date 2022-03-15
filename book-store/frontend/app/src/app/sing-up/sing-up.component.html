@@ -1,0 +1,22 @@
+<h3>Ulogujte se:</h3>
+<form>
+    <table>
+        <tr>
+            <td>Korisnicko ime: </td>
+            <td><input type="text" name="username" [(ngModel)]="username"></td>
+        </tr>
+        <tr>
+            <td>Lozinka: </td>
+            <td><input type="text" name="password" [(ngModel)]="password"></td>
+        </tr>
+        <tr>
+            <td>Radnik: </td>
+            <td><input type="checkbox" name="worker" [(ngModel)]="worker"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><button (click)="signUp()">Uloguj se</button></td>
+        </tr>
+    </table>
+</form>
+<div *ngIf="errorMessage" class="errorClass">{{errorMessage}}</div>
