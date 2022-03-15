@@ -1,0 +1,38 @@
+<h3>Dobrodosli</h3>
+
+<form>
+    <tr>
+        <td>Izaberi grad:</td>
+        <td>
+            <select name="choosenCity" [(ngModel)]="choosenCity">
+                <option *ngFor='let c of cities'>{{c.grad}}</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Adresa: </td>
+        <td>
+            <input type="text" name="choosenAddress" [(ngModel)]="choosenAddress">
+        </td>
+    </tr>
+    <tr>
+        <td>Broj stana: </td>
+        <td>
+            <input type="number" name="flatNumber" [(ngModel)]="flatNumber">
+        </td>
+    </tr>
+    <tr>
+        <td>PIN: </td>
+        <td>
+            <input type="text" name="pin" [(ngModel)]="pin">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)='logIn()'>Uloguj se</button>
+        </td>
+    </tr>
+</form>
+<div *ngIf='errorMessage' class='errorClass'>
+    {{errorMessage}}
+</div>

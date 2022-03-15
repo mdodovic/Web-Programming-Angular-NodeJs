@@ -1,0 +1,54 @@
+<h4>Dobrodosao, {{user.ime_prezime}}</h4>
+Imate {{user.novac}} dinara
+<hr>
+<table>
+    <tr>
+        <th>Tip racuna</th>
+        <th>Iznos</th>
+        <th>Dalje</th>
+    </tr>
+    <tr>
+        <td>Infostan</td>
+        <td>
+            <div *ngIf='infostan'>{{infostan}}</div>
+            <div *ngIf='!infostan'>/</div>
+        </td>
+        <td>
+            <a routerLink='/bill/infostan'>infostan pregled</a>
+        </td>
+    </tr>
+    <tr>
+        <td>Struja</td>
+        <td>
+            <div *ngIf='struja'>{{struja}}</div>
+            <div *ngIf='!struja'>/</div>
+        </td>
+        <td>
+            <a routerLink='/bill/struja'>struja pregled</a>
+        </td>
+    </tr>
+    <tr>
+        <td>Mobilni</td>
+        <td>
+            <div *ngIf='mobilni'>{{mobilni}}</div>
+            <div *ngIf='!mobilni'>/</div>
+        </td>
+        <td>
+            <a routerLink='/bill/mobilni'>mobilni pregled</a>
+        </td>
+    </tr>
+    <tr>
+        <td>Kablovska</td>
+        <td>
+            <div *ngIf='kablovska'>{{kablovska}}</div>
+            <div *ngIf='!kablovska'>/</div>
+        </td>
+        <td>
+            <a routerLink='/bill/kablovska'>kablovska pregled</a>
+        </td>
+    </tr>
+
+</table>
+
+<hr>
+<button (click)="logOut()">Odjavi se</button>

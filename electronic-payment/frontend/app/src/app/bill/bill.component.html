@@ -1,0 +1,50 @@
+<h2>Racun: {{type}}</h2>
+<h3>Ukupno zaduzenje: {{totalDepth}}</h3>
+<button (click)='payBills()'>Plati</button>
+<hr>
+<table>
+    <tr>
+        <th>Tekuci mesec</th>
+        <th>Iznos</th>
+        <th>Placen?</th>
+    </tr>
+    <tr *ngFor='let b of myBills'>
+        <td>
+            <div *ngIf='b.id == minInd' class="min">
+                {{b.mesec}}
+            </div>
+            <div *ngIf='b.id == maxInd' class="max">
+                {{b.mesec}}
+            </div>
+            <div *ngIf='!(b.id == minInd || b.id == maxInd)'>
+                {{b.mesec}}
+            </div>
+        </td>
+        <td>
+            <div *ngIf='b.id == minInd' class="min">
+                {{b.iznos}}
+            </div>
+            <div *ngIf='b.id == maxInd' class="max">
+                {{b.iznos}}
+            </div>
+            <div *ngIf='!(b.id == minInd || b.id == maxInd)'>
+                {{b.iznos}}
+            </div>
+        </td>
+        <td>
+            <div *ngIf='b.id == minInd' class="min">
+                {{b.placen}}
+            </div>
+            <div *ngIf='b.id == maxInd' class="max">
+                {{b.placen}}
+            </div>
+            <div *ngIf='!(b.id == minInd || b.id == maxInd)'>
+                {{b.placen}}
+            </div>
+
+        </td>
+
+    </tr>
+</table>
+<hr>
+<button (click)='back()'>Nazad</button>

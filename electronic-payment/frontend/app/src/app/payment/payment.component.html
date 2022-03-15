@@ -1,0 +1,29 @@
+<h2>Racun: {{type}}</h2>
+<h3>Ukupno zaduzenje: {{totalDepth}}</h3>
+<button (click)='payBills()'>Plati</button>
+<hr>
+<table>
+    <tr>
+        <th>Tekuci mesec</th>
+        <th>Iznos</th>
+        <th>Placen?</th>
+    </tr>
+    <tr *ngFor='let b of myBills'>
+        <td>
+            {{b.mesec}}
+        </td>
+        <td>
+            {{b.iznos}}
+        </td>
+        <td>
+            {{b.placen}}
+        </td>
+        <td>
+            <input type="checkbox" [(ngModel)]='b.selected'> Oznaci za placanje
+        </td>
+
+    </tr>
+</table>
+<span *ngIf='errorMessage' class="error">{{errorMessage}}</span>
+<hr>
+<button (click)='back()'>Nazad</button>
