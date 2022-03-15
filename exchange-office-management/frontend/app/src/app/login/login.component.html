@@ -1,0 +1,22 @@
+<h3>Dobrodosli</h3>
+
+<table>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td><input type="text" name="username" [(ngModel)]="username"></td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td><input type="password" name="password" [(ngModel)]="password"></td>
+    </tr>
+    <tr>
+        <td><input type="radio" name="type" value="kupac" [(ngModel)]="type"> Kupac </td>
+        <td><input type="radio" name="type" value="radnik" [(ngModel)]="type"> Radnik </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="logIn()">Uloguj se</button>
+        </td>
+    </tr>
+</table>
+<span *ngIf="errorMessage" class="errorStyle">{{errorMessage}}</span>

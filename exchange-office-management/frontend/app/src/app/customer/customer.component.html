@@ -1,0 +1,20 @@
+Dobrodoslica kupcu, {{user.ime}} {{user.prezime}}
+
+<hr>
+<table>
+    <tr>
+        <th>Valuta</th>
+        <th>Srednji kurs</th>
+    </tr>
+    <tr *ngFor='let r of rates'>
+        <td>{{r.valuta}}</td>
+        <td>{{r.sr_kurs}}</td>
+    </tr>
+
+</table>
+<hr>
+<button (click)='startTransaction()'>Zapocni transakciju</button>
+<br>
+<span *ngIf='transactionMessage'>{{transactionMessage}}</span>
+<hr>
+<button (click)='logOut()'>Odjavi se</button>

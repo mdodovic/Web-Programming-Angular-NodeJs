@@ -1,0 +1,29 @@
+Dobrodoslica randiku, {{user.ime}} {{user.prezime}}
+
+<hr>
+<table>
+    <tr>
+        <th>IdT</th>
+        <th>Kupac</th>
+        <th>Za konverziju</th>
+        <th>Iz valute</th>
+        <th>U valutu</th>
+        <th>Koliko dobija</th>
+        <th>Status</th>
+    </tr>
+    <tr *ngFor='let e of exchangeTransactions'>
+        <td>{{e.idT}}</td>
+        <td>{{e.ime}} {{e.prezime}}</td>
+        <td>{{e.za_konverziju}}</td>
+        <td>{{e.trenutna_valuta}}</td>
+        <td>{{e.zeljena_valuta}}</td>
+        <td>{{e.posle_konverzije}}</td>
+        <td>{{e.status}}</td>
+        <td *ngIf='e.status == "neobradjeno"'><button (click)='closeTransaction(e)'>Obradi</button></td>
+    </tr>
+</table>
+
+<hr>
+
+<hr>
+<button (click)='logOut()'>Odjavi se</button>

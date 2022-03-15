@@ -1,0 +1,25 @@
+<h2>Stranica za transakcije</h2>
+<table>
+    <tr>
+        <td colspan="2">Novac:</td>
+        <td colspan="2"><input type="text" name="money" [(ngModel)]="money"></td>
+    </tr>
+    <tr>
+        <td>Trenutna valuta:</td>
+        <td>
+            <select name="rateF" [(ngModel)]='rateFrom'>
+                <option *ngFor='let r of rates'>{{r.valuta}}</option>
+            </select>
+        </td>
+        <td>Zeljena valuta:</td>
+        <td>
+            <select name="rateT" [(ngModel)]='rateTo'>
+                <option *ngFor='let r of rates'>{{r.valuta}}</option>
+            </select>
+        </td>
+    </tr>
+
+</table>
+<button (click)="finishTransaction()">Potvrdi transakciju</button>
+<br>
+<span *ngIf='transactionMessage' class="errorClass">{{transactionMessage}}</span>
