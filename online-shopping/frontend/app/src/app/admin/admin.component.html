@@ -1,0 +1,43 @@
+Dobrodosli admine, {{user.ime}} {{user.prezime}}
+
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Kolicina</th>
+        <th>Komentari</th>
+    </tr>
+    <tr *ngFor='let p of products'>
+        <td>
+            <div *ngIf='p.kolicina < 5' class='lowProducts'>{{p.naziv}}</div>
+            <div *ngIf='p.kolicina >= 5' class='okProducts'>{{p.naziv}}</div>
+        </td>
+        <td>
+            <div *ngIf='p.kolicina < 5' class='lowProducts'>{{p.kolicina}}</div>
+            <div *ngIf='p.kolicina >= 5' class='okProducts'>{{p.kolicina}}</div>
+        </td>
+        <td>
+            <div *ngIf='p.kolicina < 5' class='lowProducts'>
+                <ul>
+                    <li *ngFor='let c of p.komentari'>
+                        {{c.komentar}}
+                    </li>
+                </ul>
+
+            </div>
+            <div *ngIf='p.kolicina >= 5' class='okProducts'>
+                <ul>
+                    <li *ngFor='let c of p.komentari'>
+                        {{c.komentar}}
+                    </li>
+                </ul>
+            </div>
+        </td>
+
+        <td>
+            <button (click)="increment(p)">+</button>
+        </td>
+        <td>
+            <button (click)="decrement(p)">-</button>
+        </td>
+    </tr>
+</table>

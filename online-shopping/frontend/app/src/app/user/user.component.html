@@ -1,0 +1,52 @@
+Dobrodosli, {{user.ime}} {{user.prezime}}
+
+<table>
+    <tr>
+        <th>Naziv</th>
+        <th>Kolicina</th>
+        <th>Komentari</th>
+    </tr>
+    <tr *ngFor='let p of products'>
+        <td *ngIf='p.kolicina > 0'>{{p.naziv}}</td>
+        <td *ngIf='p.kolicina > 0'>{{p.kolicina}}</td>
+        <td *ngIf='p.kolicina > 0'>
+            <ul>
+                <li *ngFor='let c of p.komentari'>
+                    {{c.komentar}}
+                </li>
+            </ul>
+        </td>
+        <td *ngIf='p.kolicina > 0'>
+            <input type="checkbox" name='buy' [(ngModel)]='p.buyProduct'>
+        </td>
+    </tr>
+</table>
+
+<button (click)='buyProducts()'>Kupi proizvode</button>
+
+<hr>
+<table>
+    <tr>
+        <td>Proizvod: </td>
+        <td>
+            <select name="comments" [(ngModel)]="productForComment">
+                <option *ngFor="let p of products"> {{p.naziv}} </option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Tekst komentara:</td>
+        <td>
+            <textarea name='comment' [(ngModel)]='comment'>    </textarea>
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)='addComment()'> Komentarisi</button>
+        </td>
+    </tr>
+</table>
+
+<hr>
+<button (click)='logOut()'>Odjavi se</button>

@@ -1,0 +1,23 @@
+<h3>Dobrodosli u sistem</h3>
+
+<form>
+    <table>
+        <tr>
+            <td>Korisnicko ime:</td>
+            <td> <input type="text" name="username" [(ngModel)]="username"></td>
+        </tr>
+        <tr>
+            <td> Lozinka:</td>
+            <td> <input type="password" name="password" [(ngModel)]="password"> </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="logIn()">Uloguj se</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<div *ngIf='errorMessage' class='errorStyle'>
+    {{errorMessage}}
+</div>
+<span class='errorStyle'>{{errorMessage}}</span>
