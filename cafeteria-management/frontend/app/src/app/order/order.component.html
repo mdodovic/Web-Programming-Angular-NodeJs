@@ -1,0 +1,31 @@
+Narucivanje kafe: <b>{{coffee.naziv}}</b>
+<hr>
+<h4>Velicina</h4>
+<input type="radio" name="size" [(ngModel)]="size" value="s-{{coffee.cene[0].s}}"> S - {{coffee.cene[0].s}}
+<input type="radio" name="size" [(ngModel)]="size" value="m-{{coffee.cene[1].m}}"> M - {{coffee.cene[1].m}}
+<input type="radio" name="size" [(ngModel)]="size" value="l-{{coffee.cene[2].l}}"> L - {{coffee.cene[2].l}}
+<hr>
+<h4>Dodaci</h4>
+
+<table>
+    <th></th>
+    <th>Naziv</th>
+    <th>Cena</th>
+    <tr *ngFor='let a of additions'>
+
+        <td>
+            <input type="checkbox" name='additions' [(ngModel)]='a.checked'>
+        </td>
+        <td>
+            {{a.naziv}}
+        </td>
+        <td>
+            {{a.cena}}
+        </td>
+    </tr>
+</table>
+
+<hr>
+<button (click)='addAdditions()'>Dodaj</button>
+<br>
+<button (click)='back()'>Nazad</button>

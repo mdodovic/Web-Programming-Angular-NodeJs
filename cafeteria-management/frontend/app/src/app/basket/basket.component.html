@@ -1,0 +1,6 @@
+<h2>Sadrzaj korpe</h2>
+<div *ngFor='let i of itemsInBasket'>
+    <b>*</b> {{i.kafa}} - {{i.velicina}} - {{i.cena}} - {{i.dodaci}}
+</div>
+Ukupno za placanje: {{totalMoney}}
+<button (click)='orderAllCoffees()'>Naruci</button>

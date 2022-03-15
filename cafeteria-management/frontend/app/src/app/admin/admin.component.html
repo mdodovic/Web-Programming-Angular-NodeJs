@@ -1,0 +1,36 @@
+Zdravo admine, {{admin.ime}} {{admin.prezime}}
+
+<hr />
+<table>
+    <tr>
+        <th>Narucio</th>
+        <th>Datum</th>
+        <th>Aktivna</th>
+        <th></th>
+        <th>Detalji porudzbine</th>
+
+    </tr>
+    <tr *ngFor='let o of orders'>
+        <td>{{o.narucio}}</td>
+        <td>{{o.datum}}</td>
+        <td>{{o.aktivna}}</td>
+
+        <td>
+            <ul>
+                <li *ngFor='let i of o.stavke'>
+                    {{i.kafa}} ({{i.velicina}},({{i.cena}})
+                    <ul>
+                        <li *ngFor='let a of i.dodaci'>
+                            {{a}}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+
+
+        <td *ngIf='o.aktivna'> <button (click)='finishOrder(o.id)'>Zavrsi</button></td>
+    </tr>
+</table>
+<hr />
+<button (click)='logOut()'>Odjavi se</button>

@@ -1,0 +1,23 @@
+Zdravo kupce, {{customer.ime}} {{customer.prezime}}!
+
+<hr />
+<input type='text' name='nameOfCoffee' [(ngModel)]='namePattern'>
+<button (click)='findCoffeesByName()'>Pretraga kafe</button>
+<table>
+    <tr>
+        <th>Slika kafe</th>
+        <th>Naziv kafe</th>
+    </tr>
+    <tr *ngFor='let k of coffees'>
+        <td>
+            <img width="100px" height="100px" src="assets/{{k.id}}.jpg">
+        </td>
+        <td>
+            <a routerLink='/order/{{k.id}}'>{{k.naziv}}</a>
+        </td>
+    </tr>
+</table>
+<hr />
+<button (click)='showBasket()'>Pregled korpe</button>
+<hr />
+<button (click)='logOut()'>Odjavi se</button>
