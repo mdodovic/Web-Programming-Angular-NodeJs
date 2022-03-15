@@ -1,0 +1,12 @@
+.errorClass{
+    color: red;
+}
+.finished{
+    color: green;
+}
+.inProgress{
+    color: orange;
+}
+.new{
+    color: royalblue;
+}

@@ -1,0 +1,25 @@
+<h3>Dobrodosli radnice, {{user.ime}} {{user.prezime}}</h3>
+<hr>
+
+<table>
+    <tr>
+        <th>Ime dela</th>
+        <th>Stanje</th>
+    </tr>
+    <tr *ngFor='let p of parts'>
+        <td>
+            {{p.naziv}}
+        </td>
+        <td>
+            {{p.stanje}}
+        </td>
+        <td>
+            <div *ngIf='p.stanje < 5'>
+                <button (click)="addParts(p.naziv)">Dodaj 5 delova</button>
+            </div>
+        </td>
+
+</table>
+
+<hr>
+<button (click)="signOut()">Odjavi se</button>

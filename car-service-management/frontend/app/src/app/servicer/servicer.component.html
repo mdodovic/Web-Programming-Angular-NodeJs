@@ -1,0 +1,94 @@
+<h3>Dobrodosli serviseru, {{user.ime}} {{user.prezime}}</h3>
+<hr>
+<table>
+    <tr>
+        <td>Ime naloga</td>
+        <td><input type="text" name="orderName" [(ngModel)]='orderName'></td>
+    </tr>
+    <tr>
+        <td>Odabir rezervnog dela</td>
+        <td>
+            <ul>
+                <li><input type="radio" name="additionalPart" [(ngModel)]='additionalPart' value=''> Novi deo: <input
+                        type="text" name="newPartName" [(ngModel)]='newPartName'></li>
+                <li><input type="radio" name="additionalPart" [(ngModel)]='additionalPart' value='/'> Nije potreban
+                    rezervni deo
+                </li>
+                <li *ngFor='let p of parts'>
+                    <input type="radio" name="additionalPart" [(ngModel)]='additionalPart' value='{{p.naziv}}'>
+                    {{p.naziv}}
+                </li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<button (click)="saveOrder()">Zavrsi</button>
+<br>
+<span class="errorClass" *ngIf='errorMessage'>{{errorMessage}}</span>
+<hr>
+<table>
+    <tr>
+        <th>Ime naloga</th>
+        <th>Rezervni deo</th>
+        <th>Stanje</th>
+        <th>Status</th>
+    </tr>
+    <tr *ngFor='let o of orders'>
+        <td>
+            <div *ngIf='o.status == "gotovo"' class="finished">{{o.naziv}}</div>
+            <div *ngIf='o.status != "gotovo"'>
+                <div *ngIf='o.amountOfParts == 0' class="errorClass">{{o.naziv}}</div>
+                <div *ngIf='o.amountOfParts != 0'>
+                    <div *ngIf='o.status == "u obradi"' class="inProgress">{{o.naziv}}</div>
+                    <div *ngIf='o.status == "novi"' class="new">{{o.naziv}}</div>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div *ngIf='o.status == "gotovo"' class="finished">{{o.deo}}</div>
+            <div *ngIf='o.status != "gotovo"'>
+                <div *ngIf='o.amountOfParts == 0' class="errorClass">{{o.deo}}</div>
+                <div *ngIf='o.amountOfParts != 0'>
+                    <div *ngIf='o.status == "u obradi"' class="inProgress">{{o.deo}}</div>
+                    <div *ngIf='o.status == "novi"' class="new">{{o.deo}}</div>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div *ngIf='o.status == "gotovo"' class="finished">{{o.amountOfParts}}</div>
+            <div *ngIf='o.status != "gotovo"'>
+                <div *ngIf='o.amountOfParts == 0' class="errorClass">{{o.amountOfParts}}</div>
+                <div *ngIf='o.amountOfParts != 0'>
+                    <div *ngIf='o.status == "u obradi"' class="inProgress">{{o.amountOfParts}}</div>
+                    <div *ngIf='o.status == "novi"' class="new">{{o.amountOfParts}}</div>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div *ngIf='o.status == "gotovo"' class="finished"></div>
+            <div *ngIf='o.status != "gotovo"'>
+                <div *ngIf='o.amountOfParts == 0' class="errorClass"></div>
+                <div *ngIf='o.amountOfParts != 0'>
+                    <div *ngIf='o.status == "u obradi"'>
+                        <select name="o.id" [(ngModel)]="o.nextStatus"
+                            (change)="changeStatus(o.id, o.status, $event.target.value)">
+                            <option value="novi">novi</option>
+                            <option value="u obradi">u obradi</option>
+                            <option value="gotovo">gotovo</option>
+                        </select>
+                    </div>
+                    <div *ngIf='o.status == "novi"'>
+                        <select name="o.id" [(ngModel)]="o.nextStatus"
+                            (change)="changeStatus(o.id, o.status, $event.target.value)">
+                            <option value="novi" selected>novi</option>
+                            <option value="u obradi">u obradi</option>
+                            <option value="gotovo">gotovo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+<hr>
+<button (click)="signOut()">Odjavi se</button>

@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <td>Korisnicko ime:</td>
+        <td><input type="text" name="username" [(ngModel)]="username"></td>
+    </tr>
+    <tr>
+        <td>Lozinka:</td>
+        <td><input type="password" name="password" [(ngModel)]="password"></td>
+    </tr>
+    <tr>
+        <td>Radnik:</td>
+        <td><input type="checkbox" name="worker" [(ngModel)]="isWorker"></td>
+    </tr>
+</table>
+<button (click)="logIn()">Uloguj se</button>
+<span *ngIf='errorMessage' class="errorClass">{{errorMessage}}</span>
