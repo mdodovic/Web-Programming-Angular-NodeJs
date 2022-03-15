@@ -1,0 +1,9 @@
+{
+	"naziv": "hleb",
+	"kolicina": 100,
+	"komentari": [
+		{
+			"komentar": "Svako jutro, svez hleb!"
+		}
+	]
+}

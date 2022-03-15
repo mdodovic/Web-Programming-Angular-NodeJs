@@ -1,0 +1,18 @@
+{
+	"kor_ime": "pera",
+	"lozinka": "pera123",
+	"ime": "Petar",
+	"prezime": "Petrovic",
+	"mejl": "pera@gmail.com",
+	"tip": "S",
+	"proizvodi": [
+		{
+			"naziv": "cokolada",
+			"kolicina": 2
+		},
+		{
+			"naziv": "hleb",
+			"kolicina": 1
+		}
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"kor_ime": "admin",
+	"lozinka": "admin123",
+	"ime": "Admin",
+	"prezime": "Adminovic",
+	"mejl": "admin@gmail.com",
+	"tip": "A",
+	"proizvodi": []
+}

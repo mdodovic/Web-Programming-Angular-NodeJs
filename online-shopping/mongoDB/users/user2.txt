@@ -1,0 +1,14 @@
+{
+	"kor_ime": "mika",
+	"lozinka": "mika123",
+	"ime": "Mitar",
+	"prezime": "Mitrovic",
+	"mejl": "mika@gmail.com",
+	"tip": "S",
+	"proizvodi": [
+		{
+			"naziv": "hleb",
+			"kolicina": 3
+		}
+	]
+}

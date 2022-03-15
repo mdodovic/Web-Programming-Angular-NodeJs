@@ -1,0 +1,12 @@
+{
+	"naziv": "cokolada",
+	"kolicina": 50,
+	"komentari": [
+		{
+			"komentar": "Vrhunska cokolada sa bademima"
+		},
+		{
+			"komentar": "Odlicna!"
+		}
+	]
+}

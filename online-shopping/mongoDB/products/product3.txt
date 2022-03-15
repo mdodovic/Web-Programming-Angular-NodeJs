@@ -1,0 +1,12 @@
+{
+	"naziv": "sok",
+	"kolicina": 10,
+	"komentari": [
+		{
+			"komentar": "Sok od jabuke je najbolji."
+		},
+		{
+			"komentar": "Odlican skup vitamina za pocetak dana."
+		}
+	]
+}
